@@ -29,8 +29,7 @@ rows are marked in the `source` field (see below).
 |---|---|
 | `subte.json` | GeoJSON FeatureCollection: metro line geometries and station points |
 | `districts.json` | GeoJSON FeatureCollection: neighbourhood (barrio) polygons |
-| `rail.json` | Rail (Trenes Argentinos) stations, segments and walking links, derived from OpenStreetMap |
-| `travel-times.json` | Ride minutes between neighbouring stations, from the BA Data GTFS feeds (rail calibrated to 2026 timetables); built by `scripts/build-travel-times.py` |
+| `travel-times.json` | Ride minutes between neighbouring stations, from the BA Data Subte GTFS feed; built by `scripts/build-travel-times.py` |
 | `headways.json` | Typical weekday gap between trains per line, same source |
 | `travel-times-compare.json` | Old estimate against feed value, coverage gaps |
 | `names.json` | Localised display names (es, en, ru) for stations, districts, and map labels |
@@ -53,8 +52,8 @@ Coordinates are WGS84 `[longitude, latitude]`.
 ### names.json
 
 An object `names` keyed by feature id. The key prefix tells the kind:
-`subte-` stations, `barrio-` districts, `label-` map labels, and `train-`,
-`premetro-`, `landmark-` for other transit and place names. Each value:
+`subte-` stations, `barrio-` districts, `label-` map labels, and `premetro-`,
+`landmark-` for other transit and place names. Each value:
 
 ```json
 {
@@ -115,7 +114,6 @@ Maintained by SupafastTech. Contact: contact@globalmetromap.com
 ## Schedule data (not OpenStreetMap)
 
 `travel-times.json`, `headways.json` and `travel-times-compare.json` are derived from the
-open GTFS feeds of the Government of the City of Buenos Aires (BA Data), published under
+open GTFS feed of the Government of the City of Buenos Aires (BA Data), published under
 CC BY 2.5 AR (https://creativecommons.org/licenses/by/2.5/ar/). Attribution: Gobierno de la
-Ciudad de Buenos Aires, BA Data. Rail times are scaled with per-line coefficients to match
-the 2026 timetables of Trenes Argentinos; rows say so in `source`.
+Ciudad de Buenos Aires, BA Data.

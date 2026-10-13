@@ -1,38 +1,21 @@
 #!/usr/bin/env python3
-"""Build travel-times.json, headways.json and travel-times-compare.json from official GTFS feeds.
+"""Build travel-times.json, headways.json and travel-times-compare.json from the official Subte GTFS feed.
 
-Usage: python3 -I build-travel-times.py <subte-gtfs-dir> <trenes-gtfs-dir> <subte.json> <rail.json> <out-dir>
+Usage: python3 -I build-travel-times.py <subte-gtfs-dir> <subte.json> <out-dir>
 
-Feeds (BA Data, Gobierno de la Ciudad de Buenos Aires, licence CC-BY-2.5-AR, attribution required):
+Feed (BA Data, Gobierno de la Ciudad de Buenos Aires, licence CC-BY-2.5-AR, attribution required):
   subte-gtfs   https://cdn.buenosaires.gob.ar/datosabiertos/datasets/sbase/subte-gtfs/subte-gtfs-zip.zip   (Subte + Premetro, feed 2014-2019)
-  trenes-gtfs  https://cdn.buenosaires.gob.ar/datosabiertos/datasets/transporte-y-obras-publicas/trenes-gtfs/trenes-gtfs.zip (Trenes Argentinos, Feb-Apr 2020)
-Unzip them yourself first (the subte zip contains another zip called subte_gtfs).
+Unzip it yourself first (the zip contains another zip called subte_gtfs).
 
-Edge time = arrival at B minus departure from A, median over weekday trips (rail: departures 07:00-19:00).
-Our stations are matched to GTFS stops by coordinates (<= 200 m) on the same line; rail edges may skip
-GTFS stops that are not drawn in the scheme (their time is included)."""
+Edge time = arrival at B minus departure from A, median over weekday trips.
+Our stations are matched to GTFS stops by coordinates (<= 200 m) on the same line."""
 import csv, json, math, os, re, statistics, sys, unicodedata
 from collections import defaultdict
 
-sub_dir, rail_dir, subte_p, rail_p, out_dir = sys.argv[1:6]
+sub_dir, subte_p, out_dir = sys.argv[1:4]
 MAX_M = 200
 DAY = (7 * 3600, 19 * 3600)
 SRC_SUBTE = "BA Data subte-gtfs (CC-BY-2.5-AR)"
-SRC_RAIL = "BA Data trenes-gtfs (CC-BY-2.5-AR)"
-# Rail calibration. The trenes feed is from 2020 and runs 15-25% faster than today's timetables, so rail edges are
-# scaled per line: k = current end-to-end time / end-to-end time in the feed.
-#   Mitre     Retiro-Tigre       feed 51 min, argentina.gob.ar timetable of 2026-03-12: 67 min
-#   Sarmiento Once-Moreno        feed 65 min, argentina.gob.ar timetable of 2026-03-09: ~78 min
-# Lines without a fresh figure (Roca, San Martin, Belgrano Sur) get the median of the two coefficients.
-# Subte and premetro are left as the feed has them (they match the official times). Dwell time is NOT in the edges:
-# the app adds DWELL_MIN (0.4) per intermediate station when it sums a route.
-CAL = {"Mitre": (67, 51, "argentina.gob.ar timetable 2026-03-12, Retiro-Tigre"),
-       "Sarmiento": (78, 65, "argentina.gob.ar timetable 2026-03-09, Once-Moreno")}
-K_DEFAULT = statistics.median([a / f for a, f, _ in CAL.values()])
-def rail_k(line):
-    if line in CAL: a, f, ref = CAL[line]; return a / f, f"{ref}: {a} min vs {f} in the feed"
-    return K_DEFAULT, "median of Mitre and Sarmiento coefficients (no current timetable figure for this line)"
-
 def rd(d, f):
     with open(os.path.join(d, f), encoding="utf-8-sig", newline="") as fh:
         return list(csv.DictReader(fh))
@@ -55,9 +38,9 @@ def name_ok(a, b):
     return bool(na & nb)
 
 # ---- our stations ----
-subte = json.load(open(subte_p)); rail = json.load(open(rail_p))
+subte = json.load(open(subte_p))
 ours = {}   # id -> (lonlat, name, line key)
-for f in subte["features"] + rail["features"]:
+for f in subte["features"]:
     if f["geometry"]["type"] == "Point":
         p = f["properties"]
         ours[p["id"]] = (tuple(f["geometry"]["coordinates"]), p["name"], p["line"])
@@ -134,26 +117,16 @@ SUBTE_ROUTES = {"LineaA": ["subte-A"], "LineaB": ["subte-B"], "LineaC": ["subte-
                 "LineaE": ["subte-E"], "LineaH": ["subte-H"], "PM-Civico": ["premetro-E2"], "PM-Savio": ["premetro-E2"]}
 process(sub_dir, lambda r: SUBTE_ROUTES.get(r), SRC_SUBTE, lambda t: t["service_id"] == "5", daytime=False)
 
-# ---- rail ----
-RAIL_ROUTES = {"Sarmiento": "train-Sarmiento", "Mitre": "train-Mitre", "Roca": "train-Roca", "San Martin": "train-SanMartin", "Belgrano Sur": "train-BelgranoSur"}
-rroutes = {r["route_id"]: r for r in rd(rail_dir, "routes.txt")}
-rail_route_lines = {}
-for rid, r in rroutes.items():
-    if r["route_long_name"].startswith("Tren de la Costa"): continue
-    if r["route_short_name"] in RAIL_ROUTES: rail_route_lines[rid] = [RAIL_ROUTES[r["route_short_name"]]]
-rail_trips, rail_seqs, rail_stops = process(rail_dir, lambda r: rail_route_lines.get(r), SRC_RAIL, lambda t: t["service_id"] == "1", daytime=True)
-
 # ---- travel-times.json ----
-def edge_src(a): return SRC_SUBTE if a.startswith(("subte", "premetro")) else SRC_RAIL
+def edge_src(a): return SRC_SUBTE
 out = []
 for (a, b), vals in sorted(edge_samples.items()):
     secs = [v for v, _ in vals]
     med = statistics.median(secs)
     row = {"line": key_line(a).split("-", 1)[1] if not a.startswith("premetro") else "E2", "from": a, "to": b,
            "minutes": round(med / 60, 1), "source": edge_src(a), "n": len(secs)}
-    if a.startswith(("subte", "premetro")):
-        d = dwell.get(b, []) + dwell.get(a, [])
-        row["dwell_min"] = round(statistics.median(d) / 60, 1) if d else None
+    d = dwell.get(b, []) + dwell.get(a, [])
+    row["dwell_min"] = round(statistics.median(d) / 60, 1) if d else None
     out.append(row)
 
 # ---- headways ----
@@ -176,30 +149,6 @@ for route, dirs in bylr.items():
     if entry: entry["minutes"] = round(statistics.median([entry["minutes"], m_]), 1); entry["by_direction"].update({f"{route}:{d}": v for d, v in per.items()})
     else: heads.append({"line": line, "minutes": m_, "by_direction": {f"{route}:{d}": v for d, v in per.items()}, "window": "weekday 07:00-19:00", "source": SRC_SUBTE, "kind": "frequencies.txt"})
 
-# rail: reference station = our station of the line served by most weekday daytime trips; gaps per trip direction
-stop_hits = defaultdict(lambda: defaultdict(list))   # our id -> dir -> [dep secs]
-for tid, rows in rail_seqs.items():
-    lines = rail_route_lines.get(rail_trips[tid]["route_id"])
-    if not lines: continue
-    for r in rows:
-        s = rail_stops[r["stop_id"]]; mm = match((float(s["stop_lon"]), float(s["stop_lat"])), lines, s["stop_name"])
-        if mm:
-            t = t2s(r["departure_time"])
-            # per branch (GTFS route) and direction: trains of different branches interleave at a shared station, so the merged gap is far shorter than the wait for one's own branch
-            if DAY[0] <= t <= DAY[1]: stop_hits[mm[1]][(rail_trips[tid]["route_id"], rail_trips[tid]["direction_id"])].append(t)
-for lk in sorted(set(key_line(i) for i in ours if i.startswith("train"))):
-    cand = [(sum(len(v) for v in stop_hits[i].values()), i) for i in by_line[lk] if i in stop_hits]
-    if not cand: continue
-    n, ref = max(cand)
-    per = {}
-    for d, ts in stop_hits[ref].items():
-        ts = sorted(set(ts))
-        gaps = [b - a for a, b in zip(ts, ts[1:]) if b > a]
-        if gaps: per[f"{d[0]}:{d[1]}"] = round(statistics.median(gaps) / 60, 1)
-    if per:
-        heads.append({"line": lk.split("-", 1)[1], "minutes": round(statistics.median(per.values()), 1), "ref_station": ref, "ref_name": ours[ref][1],
-                      "by_direction": per, "window": "weekday 07:00-19:00", "source": SRC_RAIL, "kind": "stop_times.txt, median of per-branch median gaps at ref station"})
-
 # ---- interpolation: our stations that no GTFS trip serves (stop listed but unused, or missing) ----
 in_edges = {i for e in edge_samples for i in e}
 for lk, ids in by_line.items():
@@ -207,7 +156,7 @@ for lk, ids in by_line.items():
     for a, b in line_pairs(lk, ids):
         n = idx[a]
         if idx[b] != n + 1: continue  # a branch start: the linear span below does not apply (12-17 has feed times)
-        if tuple(sorted((a, b))) in edge_samples or (a.startswith('train') and a in in_edges and b in in_edges): continue
+        if tuple(sorted((a, b))) in edge_samples: continue
         # smallest observed edge on this line spanning the pair
         spans = [(idx[y] - idx[x], x, y) for (x, y) in edge_samples if x in idx and y in idx and idx[x] <= n and idx[y] >= n + 1]
         if not spans: continue
@@ -227,43 +176,15 @@ for lk, ids in by_line.items():
                             "source": edge_src(a) + ", interpolated by distance between " + ours[x][1] + " and " + ours[y][1] + " (" + ('no trip stops at ' + ours[a if a not in in_edges else b][1] if (a not in in_edges or b not in in_edges) else 'skipped by the feed in one direction') + ")", "n": 0, "interpolated": True})
                 edge_samples[tuple(sorted((a, b)))] = [(sec, "interp")]
 
-# ---- rail calibration ----
-rail_est = {tuple(sorted((sg["from"], sg["to"]))): sg["minutes"] for sg in rail["segments"]}
-calibrated = []
-for row in out:
-    if row["from"].startswith(("subte", "premetro")): continue
-    if row.get("interpolated"):
-        continue
-    k, why = rail_k(row["line"])
-    row["feed_minutes"] = row["minutes"]
-    row["minutes"] = round(row["minutes"] * k, 1)
-    row["source"] = SRC_RAIL + f", calibrated x{k:.3f} ({why})"
-    row["k"] = round(k, 3)
-    calibrated.append(row)
-# pairs the feed cannot time (stops missing in the feed, lines absent from it): keep the old estimate from rail.json
-out = [r for r in out if not (r.get("interpolated") and not r["from"].startswith(("subte", "premetro")))]
-have_pairs = {tuple(sorted((r["from"], r["to"]))) for r in out}
-for sg in rail["segments"]:
-    pair = tuple(sorted((sg["from"], sg["to"])))
-    if pair in have_pairs: continue
-    # a skip edge from the feed (e.g. Flores-Liniers) also times the pair if all its parts are covered: not used here
-    out.append({"line": sg["line"], "from": sg["from"], "to": sg["to"], "minutes": sg["minutes"], "source": "estimate", "n": 0})
-    have_pairs.add(pair)
 out.sort(key=lambda r: (r["from"], r["to"]))
 
-# ---- compare with current values ----
-cur = {}
-for sg in rail["segments"]: cur[tuple(sorted((sg["from"], sg["to"])))] = (sg["minutes"], "rail.json estimate")
+# ---- compare with the distance estimate used before the feed ----
 SPEED_KMH = 25
-def was(a, b):
-    if (tuple(sorted((a, b)))) in cur: return cur[tuple(sorted((a, b)))]
-    d = hav_m(ours[a][0], ours[b][0]) / 1000
-    return (round(d / SPEED_KMH * 60, 1), "lib/route.ts: distance at 25 km/h")
 compare = []
 for row in out:
-    w, how = was(row["from"], row["to"])
+    w = round(hav_m(ours[row["from"]][0], ours[row["to"]][0]) / 1000 / SPEED_KMH * 60, 1)
     compare.append({"line": row["line"], "from": row["from"], "to": row["to"], "from_name": ours[row["from"]][1], "to_name": ours[row["to"]][1],
-                    "was": w, "now": row["minutes"], "diff": round(row["minutes"] - w, 1), "was_basis": how})
+                    "was": w, "now": row["minutes"], "diff": round(row["minutes"] - w, 1), "was_basis": "lib/route.ts: distance at 25 km/h"})
 big = [c for c in compare if abs(c["diff"]) > 1]
 
 # ---- coverage: our consecutive pairs with no GTFS time ----
@@ -276,11 +197,10 @@ total_pairs = sum(len(line_pairs(lk, v)) for lk, v in by_line.items())
 unm_ours = sorted(i for i in ours if i not in used_gtfs)
 
 os.makedirs(out_dir, exist_ok=True)
-json.dump({"attribution": "Schedule data: Gobierno de la Ciudad de Buenos Aires (BA Data), CC-BY-2.5-AR; Trenes Argentinos", "edges": out}, open(os.path.join(out_dir, "travel-times.json"), "w"), ensure_ascii=False, indent=1)
-json.dump({"attribution": "Schedule data: Gobierno de la Ciudad de Buenos Aires (BA Data), CC-BY-2.5-AR; Trenes Argentinos", "headways": heads}, open(os.path.join(out_dir, "headways.json"), "w"), ensure_ascii=False, indent=1)
+json.dump({"attribution": "Schedule data: Gobierno de la Ciudad de Buenos Aires (BA Data), CC-BY-2.5-AR", "edges": out}, open(os.path.join(out_dir, "travel-times.json"), "w"), ensure_ascii=False, indent=1)
+json.dump({"attribution": "Schedule data: Gobierno de la Ciudad de Buenos Aires (BA Data), CC-BY-2.5-AR", "headways": heads}, open(os.path.join(out_dir, "headways.json"), "w"), ensure_ascii=False, indent=1)
 json.dump({"changed_over_1_min": big, "no_gtfs_time": missing, "our_stations_without_gtfs_stop": unm_ours,
            "gtfs_stops_not_matched_near_scheme": sorted(set(u for u in unmatched_gtfs if any(hav_m(ours[i][0], gtfs_ll[u[3]]) <= 1500 for i in ours))), "gtfs_stops_outside_scheme_count": len(set(unmatched_gtfs)), "name_mismatch_on_coord_match": sorted(set(name_mismatch))},
           open(os.path.join(out_dir, "travel-times-compare.json"), "w"), ensure_ascii=False, indent=1)
-print("rail k:", {l: round(rail_k(l)[0], 3) for l in ("Mitre","Sarmiento","Roca","SanMartin","BelgranoSur")})
 print(f"edges with time: {len(out)}; our consecutive pairs: {total_pairs}; of them without GTFS time: {len(missing)}")
 print(f"differences > 1 min: {len(big)} of {len(compare)}")

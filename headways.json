@@ -1,5 +1,5 @@
 {
- "attribution": "Schedule data: Gobierno de la Ciudad de Buenos Aires (BA Data), CC-BY-2.5-AR; Trenes Argentinos",
+ "attribution": "Schedule data: Gobierno de la Ciudad de Buenos Aires (BA Data), CC-BY-2.5-AR",
  "headways": [
   {
    "line": "A",
@@ -79,71 +79,6 @@
    "window": "weekday 07:00-19:00",
    "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
    "kind": "frequencies.txt"
-  },
-  {
-   "line": "BelgranoSur",
-   "minutes": 11.2,
-   "ref_station": "train-BelgranoSur-03",
-   "ref_name": "Presidente Illia",
-   "by_direction": {
-    "0": 11.0,
-    "1": 11.5
-   },
-   "window": "weekday 07:00-19:00",
-   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR)",
-   "kind": "stop_times.txt, median gap at ref station"
-  },
-  {
-   "line": "Mitre",
-   "minutes": 5.5,
-   "ref_station": "train-Mitre-01",
-   "ref_name": "Retiro",
-   "by_direction": {
-    "0": 5.0,
-    "1": 6.0
-   },
-   "window": "weekday 07:00-19:00",
-   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR)",
-   "kind": "stop_times.txt, median gap at ref station"
-  },
-  {
-   "line": "Roca",
-   "minutes": 3.0,
-   "ref_station": "train-Roca-01",
-   "ref_name": "Constitución",
-   "by_direction": {
-    "0": 2.0,
-    "1": 4.0
-   },
-   "window": "weekday 07:00-19:00",
-   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR)",
-   "kind": "stop_times.txt, median gap at ref station"
-  },
-  {
-   "line": "SanMartin",
-   "minutes": 15.0,
-   "ref_station": "train-SanMartin-06",
-   "ref_name": "Devoto",
-   "by_direction": {
-    "0": 15.0,
-    "1": 15.0
-   },
-   "window": "weekday 07:00-19:00",
-   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR)",
-   "kind": "stop_times.txt, median gap at ref station"
-  },
-  {
-   "line": "Sarmiento",
-   "minutes": 9.0,
-   "ref_station": "train-Sarmiento-06",
-   "ref_name": "Liniers",
-   "by_direction": {
-    "0": 9.0,
-    "1": 9.0
-   },
-   "window": "weekday 07:00-19:00",
-   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR)",
-   "kind": "stop_times.txt, median gap at ref station"
   }
  ]
 }
