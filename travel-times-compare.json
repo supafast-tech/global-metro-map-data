@@ -1,17 +1,6 @@
 {
  "changed_over_1_min": [
   {
-   "line": "E2",
-   "from": "premetro-E2-16",
-   "to": "premetro-E2-17",
-   "from_name": "General Savio",
-   "to_name": "Ana Díaz",
-   "was": 2.7,
-   "now": 0.5,
-   "diff": -2.2,
-   "was_basis": "lib/route.ts: distance at 25 km/h"
-  },
-  {
    "line": "E",
    "from": "subte-E-14",
    "to": "subte-E-15",

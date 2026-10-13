@@ -147,15 +147,6 @@
   },
   {
    "line": "E2",
-   "from": "premetro-E2-16",
-   "to": "premetro-E2-17",
-   "minutes": 0.5,
-   "source": "BA Data subte-gtfs (CC-BY-2.5-AR), interpolated by distance between Pola and Ana Díaz (skipped by the feed in one direction)",
-   "n": 0,
-   "interpolated": true
-  },
-  {
-   "line": "E2",
    "from": "premetro-E2-17",
    "to": "premetro-E2-18",
    "minutes": 1.2,

@@ -66,6 +66,20 @@ def key_line(i):
 by_line = defaultdict(list)
 for i in ours: by_line[key_line(i)].append(i)
 for v in by_line.values(): v.sort()
+# A branched line numbers its main run first and the branch after it: the first stop of a branch hangs off the fork,
+# not off the stop numbered before it. Premetro E2: 01-16 main run to General Savio, 17-18 Ana Díaz to Centro Cívico
+# Lugano leaving from Pola (12); there is no track General Savio - Ana Díaz. Same table as LINE_FORKS in the app.
+LINE_FORKS = {"premetro-E2": {17: 12}}
+def seq(i): return int(re.search(r"(\d+)$", i).group(1))
+def line_pairs(lk, ids):
+    """neighbouring stops of one line as (stop before, stop); ids sorted by number"""
+    forks = LINE_FORKS.get(lk, {})
+    pairs = []
+    for n in range(1, len(ids)):
+        f = forks.get(seq(ids[n]))
+        a = next((i for i in ids if seq(i) == f), None) if f is not None else ids[n - 1]
+        if a: pairs.append((a, ids[n]))
+    return pairs
 
 def match(stop, lines, name=""):
     """same normalized name within 600 m wins; else nearest of our stations on the given lines within MAX_M"""
@@ -189,8 +203,9 @@ for lk in sorted(set(key_line(i) for i in ours if i.startswith("train"))):
 in_edges = {i for e in edge_samples for i in e}
 for lk, ids in by_line.items():
     idx = {i: n for n, i in enumerate(ids)}
-    for n in range(len(ids) - 1):
-        a, b = ids[n], ids[n + 1]
+    for a, b in line_pairs(lk, ids):
+        n = idx[a]
+        if idx[b] != n + 1: continue  # a branch start: the linear span below does not apply (12-17 has feed times)
         if tuple(sorted((a, b))) in edge_samples or (a.startswith('train') and a in in_edges and b in in_edges): continue
         # smallest observed edge on this line spanning the pair
         spans = [(idx[y] - idx[x], x, y) for (x, y) in edge_samples if x in idx and y in idx and idx[x] <= n and idx[y] >= n + 1]
@@ -254,9 +269,9 @@ big = [c for c in compare if abs(c["diff"]) > 1]
 have = set(edge_samples)
 missing = []
 for lk, ids in by_line.items():
-    for a, b in zip(ids, ids[1:]):
+    for a, b in line_pairs(lk, ids):
         if tuple(sorted((a, b))) not in have: missing.append({"line": lk.split("-", 1)[1], "from": a, "to": b, "from_name": ours[a][1], "to_name": ours[b][1]})
-total_pairs = sum(max(0, len(v) - 1) for v in by_line.values())
+total_pairs = sum(len(line_pairs(lk, v)) for lk, v in by_line.items())
 unm_ours = sorted(i for i in ours if i not in used_gtfs)
 
 os.makedirs(out_dir, exist_ok=True)
