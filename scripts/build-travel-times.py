@@ -185,7 +185,8 @@ for tid, rows in rail_seqs.items():
         s = rail_stops[r["stop_id"]]; mm = match((float(s["stop_lon"]), float(s["stop_lat"])), lines, s["stop_name"])
         if mm:
             t = t2s(r["departure_time"])
-            if DAY[0] <= t <= DAY[1]: stop_hits[mm[1]][rail_trips[tid]["direction_id"]].append(t)
+            # per branch (GTFS route) and direction: trains of different branches interleave at a shared station, so the merged gap is far shorter than the wait for one's own branch
+            if DAY[0] <= t <= DAY[1]: stop_hits[mm[1]][(rail_trips[tid]["route_id"], rail_trips[tid]["direction_id"])].append(t)
 for lk in sorted(set(key_line(i) for i in ours if i.startswith("train"))):
     cand = [(sum(len(v) for v in stop_hits[i].values()), i) for i in by_line[lk] if i in stop_hits]
     if not cand: continue
@@ -194,10 +195,10 @@ for lk in sorted(set(key_line(i) for i in ours if i.startswith("train"))):
     for d, ts in stop_hits[ref].items():
         ts = sorted(set(ts))
         gaps = [b - a for a, b in zip(ts, ts[1:]) if b > a]
-        if gaps: per[d] = round(statistics.median(gaps) / 60, 1)
+        if gaps: per[f"{d[0]}:{d[1]}"] = round(statistics.median(gaps) / 60, 1)
     if per:
         heads.append({"line": lk.split("-", 1)[1], "minutes": round(statistics.median(per.values()), 1), "ref_station": ref, "ref_name": ours[ref][1],
-                      "by_direction": per, "window": "weekday 07:00-19:00", "source": SRC_RAIL, "kind": "stop_times.txt, median gap at ref station"})
+                      "by_direction": per, "window": "weekday 07:00-19:00", "source": SRC_RAIL, "kind": "stop_times.txt, median of per-branch median gaps at ref station"})
 
 # ---- interpolation: our stations that no GTFS trip serves (stop listed but unused, or missing) ----
 in_edges = {i for e in edge_samples for i in e}
