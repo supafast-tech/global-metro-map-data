@@ -29,6 +29,10 @@ rows are marked in the `source` field (see below).
 |---|---|
 | `subte.json` | GeoJSON FeatureCollection: metro line geometries and station points |
 | `districts.json` | GeoJSON FeatureCollection: neighbourhood (barrio) polygons |
+| `rail.json` | Rail (Trenes Argentinos) stations, segments and walking links, derived from OpenStreetMap |
+| `travel-times.json` | Ride minutes between neighbouring stations, from the BA Data GTFS feeds (rail calibrated to 2026 timetables); built by `scripts/build-travel-times.py` |
+| `headways.json` | Typical weekday gap between trains per line, same source |
+| `travel-times-compare.json` | Old estimate against feed value, coverage gaps |
 | `names.json` | Localised display names (es, en, ru) for stations, districts, and map labels |
 
 Every file starts with `license`, `attribution`, and `license_url` fields.
@@ -107,3 +111,11 @@ data is published here.
 ## Maintainer and contact
 
 Maintained by SupafastTech. Contact: contact@globalmetromap.com
+
+## Schedule data (not OpenStreetMap)
+
+`travel-times.json`, `headways.json` and `travel-times-compare.json` are derived from the
+open GTFS feeds of the Government of the City of Buenos Aires (BA Data), published under
+CC BY 2.5 AR (https://creativecommons.org/licenses/by/2.5/ar/). Attribution: Gobierno de la
+Ciudad de Buenos Aires, BA Data. Rail times are scaled with per-line coefficients to match
+the 2026 timetables of Trenes Argentinos; rows say so in `source`.

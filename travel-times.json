@@ -1,0 +1,1197 @@
+{
+ "attribution": "Schedule data: Gobierno de la Ciudad de Buenos Aires (BA Data), CC-BY-2.5-AR; Trenes Argentinos",
+ "edges": [
+  {
+   "line": "E2",
+   "from": "premetro-E2-01",
+   "to": "premetro-E2-02",
+   "minutes": 2.4,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-02",
+   "to": "premetro-E2-03",
+   "minutes": 2.0,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-03",
+   "to": "premetro-E2-04",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-04",
+   "to": "premetro-E2-05",
+   "minutes": 1.4,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-05",
+   "to": "premetro-E2-06",
+   "minutes": 0.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-06",
+   "to": "premetro-E2-07",
+   "minutes": 0.8,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-07",
+   "to": "premetro-E2-08",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-08",
+   "to": "premetro-E2-09",
+   "minutes": 2.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-09",
+   "to": "premetro-E2-10",
+   "minutes": 1.0,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-10",
+   "to": "premetro-E2-11",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-11",
+   "to": "premetro-E2-12",
+   "minutes": 1.6,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 4,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-12",
+   "to": "premetro-E2-13",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-12",
+   "to": "premetro-E2-17",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-13",
+   "to": "premetro-E2-14",
+   "minutes": 1.0,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-14",
+   "to": "premetro-E2-15",
+   "minutes": 1.4,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-15",
+   "to": "premetro-E2-16",
+   "minutes": 1.4,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-16",
+   "to": "premetro-E2-17",
+   "minutes": 0.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR), interpolated by distance between Pola and Ana Díaz (skipped by the feed in one direction)",
+   "n": 0,
+   "interpolated": true
+  },
+  {
+   "line": "E2",
+   "from": "premetro-E2-17",
+   "to": "premetro-E2-18",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-01",
+   "to": "subte-A-02",
+   "minutes": 0.6,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-02",
+   "to": "subte-A-03",
+   "minutes": 0.7,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-03",
+   "to": "subte-A-04",
+   "minutes": 0.8,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-04",
+   "to": "subte-A-05",
+   "minutes": 0.8,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-05",
+   "to": "subte-A-06",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-06",
+   "to": "subte-A-07",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 1,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-06",
+   "to": "subte-A-08",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 1,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-07",
+   "to": "subte-A-08",
+   "minutes": 0.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR), interpolated by distance between Congreso and Alberti (skipped by the feed in one direction)",
+   "n": 0,
+   "interpolated": true
+  },
+  {
+   "line": "A",
+   "from": "subte-A-07",
+   "to": "subte-A-09",
+   "minutes": 1.3,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 1,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-08",
+   "to": "subte-A-09",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 1,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-09",
+   "to": "subte-A-10",
+   "minutes": 1.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-10",
+   "to": "subte-A-11",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-11",
+   "to": "subte-A-12",
+   "minutes": 1.6,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-12",
+   "to": "subte-A-13",
+   "minutes": 1.4,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-13",
+   "to": "subte-A-14",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-14",
+   "to": "subte-A-15",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-15",
+   "to": "subte-A-16",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-16",
+   "to": "subte-A-17",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "A",
+   "from": "subte-A-17",
+   "to": "subte-A-18",
+   "minutes": 1.4,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-01",
+   "to": "subte-B-02",
+   "minutes": 0.7,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-02",
+   "to": "subte-B-03",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-03",
+   "to": "subte-B-04",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-04",
+   "to": "subte-B-05",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-05",
+   "to": "subte-B-06",
+   "minutes": 1.0,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-06",
+   "to": "subte-B-07",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-07",
+   "to": "subte-B-08",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-08",
+   "to": "subte-B-09",
+   "minutes": 1.6,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-09",
+   "to": "subte-B-10",
+   "minutes": 1.6,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-10",
+   "to": "subte-B-11",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-11",
+   "to": "subte-B-12",
+   "minutes": 1.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-12",
+   "to": "subte-B-13",
+   "minutes": 1.3,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-13",
+   "to": "subte-B-14",
+   "minutes": 1.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-14",
+   "to": "subte-B-15",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-15",
+   "to": "subte-B-16",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "B",
+   "from": "subte-B-16",
+   "to": "subte-B-17",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "C",
+   "from": "subte-C-01",
+   "to": "subte-C-02",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "C",
+   "from": "subte-C-02",
+   "to": "subte-C-03",
+   "minutes": 1.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "C",
+   "from": "subte-C-03",
+   "to": "subte-C-04",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "C",
+   "from": "subte-C-04",
+   "to": "subte-C-05",
+   "minutes": 1.3,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "C",
+   "from": "subte-C-05",
+   "to": "subte-C-06",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "C",
+   "from": "subte-C-06",
+   "to": "subte-C-07",
+   "minutes": 1.4,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "C",
+   "from": "subte-C-07",
+   "to": "subte-C-08",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "C",
+   "from": "subte-C-08",
+   "to": "subte-C-09",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-01",
+   "to": "subte-D-02",
+   "minutes": 1.3,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-02",
+   "to": "subte-D-03",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-03",
+   "to": "subte-D-04",
+   "minutes": 1.6,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-04",
+   "to": "subte-D-05",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-05",
+   "to": "subte-D-06",
+   "minutes": 1.6,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-06",
+   "to": "subte-D-07",
+   "minutes": 1.0,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-07",
+   "to": "subte-D-08",
+   "minutes": 1.0,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-08",
+   "to": "subte-D-09",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-09",
+   "to": "subte-D-10",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-10",
+   "to": "subte-D-11",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-11",
+   "to": "subte-D-12",
+   "minutes": 1.7,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-12",
+   "to": "subte-D-13",
+   "minutes": 2.0,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-13",
+   "to": "subte-D-14",
+   "minutes": 1.6,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-14",
+   "to": "subte-D-15",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "D",
+   "from": "subte-D-15",
+   "to": "subte-D-16",
+   "minutes": 1.8,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-01",
+   "to": "subte-E-02",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-02",
+   "to": "subte-E-03",
+   "minutes": 1.3,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-03",
+   "to": "subte-E-04",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-04",
+   "to": "subte-E-05",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-05",
+   "to": "subte-E-06",
+   "minutes": 1.3,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-06",
+   "to": "subte-E-07",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-07",
+   "to": "subte-E-08",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-08",
+   "to": "subte-E-09",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-09",
+   "to": "subte-E-10",
+   "minutes": 1.4,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-10",
+   "to": "subte-E-11",
+   "minutes": 1.3,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-11",
+   "to": "subte-E-12",
+   "minutes": 1.4,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-12",
+   "to": "subte-E-13",
+   "minutes": 1.4,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-13",
+   "to": "subte-E-14",
+   "minutes": 1.6,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-14",
+   "to": "subte-E-15",
+   "minutes": 0.9,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-15",
+   "to": "subte-E-16",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-16",
+   "to": "subte-E-17",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "E",
+   "from": "subte-E-17",
+   "to": "subte-E-18",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-01",
+   "to": "subte-H-02",
+   "minutes": 1.2,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-02",
+   "to": "subte-H-03",
+   "minutes": 1.7,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-03",
+   "to": "subte-H-04",
+   "minutes": 0.8,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-04",
+   "to": "subte-H-05",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-05",
+   "to": "subte-H-06",
+   "minutes": 1.1,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-06",
+   "to": "subte-H-07",
+   "minutes": 1.3,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-07",
+   "to": "subte-H-08",
+   "minutes": 1.7,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-08",
+   "to": "subte-H-09",
+   "minutes": 1.3,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-09",
+   "to": "subte-H-10",
+   "minutes": 1.3,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-10",
+   "to": "subte-H-11",
+   "minutes": 1.6,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "H",
+   "from": "subte-H-11",
+   "to": "subte-H-12",
+   "minutes": 1.5,
+   "source": "BA Data subte-gtfs (CC-BY-2.5-AR)",
+   "n": 2,
+   "dwell_min": 0.4
+  },
+  {
+   "line": "BelgranoNorte",
+   "from": "train-BelgranoNorte-01",
+   "to": "train-BelgranoNorte-02",
+   "minutes": 6,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "BelgranoNorte",
+   "from": "train-BelgranoNorte-02",
+   "to": "train-BelgranoNorte-03",
+   "minutes": 11,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "BelgranoSur",
+   "from": "train-BelgranoSur-01",
+   "to": "train-BelgranoSur-02",
+   "minutes": 7.5,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.257 (median of Mitre and Sarmiento coefficients (no current timetable figure for this line))",
+   "n": 78,
+   "feed_minutes": 6.0,
+   "k": 1.257
+  },
+  {
+   "line": "BelgranoSur",
+   "from": "train-BelgranoSur-02",
+   "to": "train-BelgranoSur-03",
+   "minutes": 3.8,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.257 (median of Mitre and Sarmiento coefficients (no current timetable figure for this line))",
+   "n": 114,
+   "feed_minutes": 3.0,
+   "k": 1.257
+  },
+  {
+   "line": "BelgranoSur",
+   "from": "train-BelgranoSur-03",
+   "to": "train-BelgranoSur-04",
+   "minutes": 3.8,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.257 (median of Mitre and Sarmiento coefficients (no current timetable figure for this line))",
+   "n": 114,
+   "feed_minutes": 3.0,
+   "k": 1.257
+  },
+  {
+   "line": "Mitre",
+   "from": "train-Mitre-01",
+   "to": "train-Mitre-02",
+   "minutes": 14.5,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.314 (argentina.gob.ar timetable 2026-03-12, Retiro-Tigre: 67 min vs 51 in the feed)",
+   "n": 110,
+   "feed_minutes": 11.0,
+   "k": 1.314
+  },
+  {
+   "line": "Mitre",
+   "from": "train-Mitre-01",
+   "to": "train-Mitre-03",
+   "minutes": 25.0,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.314 (argentina.gob.ar timetable 2026-03-12, Retiro-Tigre: 67 min vs 51 in the feed)",
+   "n": 142,
+   "feed_minutes": 19.0,
+   "k": 1.314
+  },
+  {
+   "line": "Mitre",
+   "from": "train-Mitre-02",
+   "to": "train-Mitre-03",
+   "minutes": 5,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "Mitre",
+   "from": "train-Mitre-02",
+   "to": "train-Mitre-04",
+   "minutes": 5.3,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.314 (argentina.gob.ar timetable 2026-03-12, Retiro-Tigre: 67 min vs 51 in the feed)",
+   "n": 111,
+   "feed_minutes": 4.0,
+   "k": 1.314
+  },
+  {
+   "line": "Mitre",
+   "from": "train-Mitre-03",
+   "to": "train-Mitre-04",
+   "minutes": 4,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "Mitre",
+   "from": "train-Mitre-04",
+   "to": "train-Mitre-05",
+   "minutes": 3.9,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.314 (argentina.gob.ar timetable 2026-03-12, Retiro-Tigre: 67 min vs 51 in the feed)",
+   "n": 110,
+   "feed_minutes": 3.0,
+   "k": 1.314
+  },
+  {
+   "line": "SanMartin",
+   "from": "train-SanMartin-01",
+   "to": "train-SanMartin-02",
+   "minutes": 10.1,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.257 (median of Mitre and Sarmiento coefficients (no current timetable figure for this line))",
+   "n": 96,
+   "feed_minutes": 8.0,
+   "k": 1.257
+  },
+  {
+   "line": "SanMartin",
+   "from": "train-SanMartin-02",
+   "to": "train-SanMartin-03",
+   "minutes": 5,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "SanMartin",
+   "from": "train-SanMartin-02",
+   "to": "train-SanMartin-05",
+   "minutes": 15.7,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.257 (median of Mitre and Sarmiento coefficients (no current timetable figure for this line))",
+   "n": 96,
+   "feed_minutes": 12.5,
+   "k": 1.257
+  },
+  {
+   "line": "SanMartin",
+   "from": "train-SanMartin-03",
+   "to": "train-SanMartin-04",
+   "minutes": 4,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "SanMartin",
+   "from": "train-SanMartin-04",
+   "to": "train-SanMartin-05",
+   "minutes": 5,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "SanMartin",
+   "from": "train-SanMartin-05",
+   "to": "train-SanMartin-06",
+   "minutes": 3.8,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.257 (median of Mitre and Sarmiento coefficients (no current timetable figure for this line))",
+   "n": 96,
+   "feed_minutes": 3.0,
+   "k": 1.257
+  },
+  {
+   "line": "Sarmiento",
+   "from": "train-Sarmiento-01",
+   "to": "train-Sarmiento-02",
+   "minutes": 9.6,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.200 (argentina.gob.ar timetable 2026-03-09, Once-Moreno: 78 min vs 65 in the feed)",
+   "n": 172,
+   "feed_minutes": 8.0,
+   "k": 1.2
+  },
+  {
+   "line": "Sarmiento",
+   "from": "train-Sarmiento-02",
+   "to": "train-Sarmiento-03",
+   "minutes": 4.8,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.200 (argentina.gob.ar timetable 2026-03-09, Once-Moreno: 78 min vs 65 in the feed)",
+   "n": 173,
+   "feed_minutes": 4.0,
+   "k": 1.2
+  },
+  {
+   "line": "Sarmiento",
+   "from": "train-Sarmiento-03",
+   "to": "train-Sarmiento-04",
+   "minutes": 3.6,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.200 (argentina.gob.ar timetable 2026-03-09, Once-Moreno: 78 min vs 65 in the feed)",
+   "n": 160,
+   "feed_minutes": 3.0,
+   "k": 1.2
+  },
+  {
+   "line": "Sarmiento",
+   "from": "train-Sarmiento-03",
+   "to": "train-Sarmiento-06",
+   "minutes": 10.8,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.200 (argentina.gob.ar timetable 2026-03-09, Once-Moreno: 78 min vs 65 in the feed)",
+   "n": 13,
+   "feed_minutes": 9.0,
+   "k": 1.2
+  },
+  {
+   "line": "Sarmiento",
+   "from": "train-Sarmiento-04",
+   "to": "train-Sarmiento-05",
+   "minutes": 3.6,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.200 (argentina.gob.ar timetable 2026-03-09, Once-Moreno: 78 min vs 65 in the feed)",
+   "n": 158,
+   "feed_minutes": 3.0,
+   "k": 1.2
+  },
+  {
+   "line": "Sarmiento",
+   "from": "train-Sarmiento-05",
+   "to": "train-Sarmiento-06",
+   "minutes": 4.8,
+   "source": "BA Data trenes-gtfs (CC-BY-2.5-AR), calibrated x1.200 (argentina.gob.ar timetable 2026-03-09, Once-Moreno: 78 min vs 65 in the feed)",
+   "n": 159,
+   "feed_minutes": 4.0,
+   "k": 1.2
+  },
+  {
+   "line": "Urquiza",
+   "from": "train-Urquiza-01",
+   "to": "train-Urquiza-02",
+   "minutes": 2,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "Urquiza",
+   "from": "train-Urquiza-02",
+   "to": "train-Urquiza-03",
+   "minutes": 2,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "Urquiza",
+   "from": "train-Urquiza-03",
+   "to": "train-Urquiza-04",
+   "minutes": 3,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "Urquiza",
+   "from": "train-Urquiza-04",
+   "to": "train-Urquiza-05",
+   "minutes": 2,
+   "source": "estimate",
+   "n": 0
+  },
+  {
+   "line": "Urquiza",
+   "from": "train-Urquiza-05",
+   "to": "train-Urquiza-06",
+   "minutes": 1,
+   "source": "estimate",
+   "n": 0
+  }
+ ]
+}
