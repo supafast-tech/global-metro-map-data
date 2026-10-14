@@ -1,8 +1,9 @@
 # Global Metro Map: open map data
 
-Open data behind the Global Metro Map app. This repository holds only the
-parts of the app's dataset that are derived from OpenStreetMap, published so
-that the Open Database License (ODbL) 1.0 share-alike terms are met.
+Open data behind the Global Metro Map app. Geometry, stations, districts, and
+names come from OpenStreetMap and are published under the Open Database License
+(ODbL) 1.0, so its share-alike terms are met. Travel times and headways come
+from BA Data and are published under CC BY 2.5 AR (see "Schedule data" below).
 
 The current dataset covers Buenos Aires (the Subte, its neighbourhoods, and
 station names).
@@ -105,7 +106,7 @@ terms.
 
 The Global Metro Map application code, design, and design tokens are
 proprietary and are not part of this repository. Only the OpenStreetMap-derived
-data is published here.
+data and the BA Data schedule data are published here.
 
 ## Maintainer and contact
 
